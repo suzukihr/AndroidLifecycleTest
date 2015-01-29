@@ -1,4 +1,4 @@
-# AndroidLifecycleTest
+# Android Lifecycle Test
 This is a project to learn about Lifecycle of Activity and Fragment.
 
 # Know about Lifecycle
