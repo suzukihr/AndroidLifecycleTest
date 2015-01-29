@@ -44,6 +44,13 @@ public class LifeCycleFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.d(TAG, methodName + " (savedInstanceState: " + getBundleInfo(savedInstanceState) + ")");
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
         Log.d(TAG, methodName + " (savedInstanceState: " + getBundleInfo(savedInstanceState) + ")");
