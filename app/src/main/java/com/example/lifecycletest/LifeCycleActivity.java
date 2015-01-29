@@ -19,8 +19,8 @@ public class LifeCycleActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("********************", getClass().getSimpleName() + " start ﹕********************");
         String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
-        Log.d("********************", this.getClass().getSimpleName() + " start ﹕********************");
         Log.d(TAG, methodName+ " (savedInstanceState: " + getBundleInfo(savedInstanceState) + ")");
         super.onCreate(savedInstanceState);
     }
