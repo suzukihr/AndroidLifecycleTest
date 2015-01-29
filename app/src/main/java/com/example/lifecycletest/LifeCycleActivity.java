@@ -46,13 +46,18 @@ public class LifeCycleActivity extends Activity {
         super.onResume();
     }
 
-    // called when setting 'android:configChanges="orientation|screenSize"' in your manifest
-    // http://developer.android.com/guide/topics/resources/runtime-changes.html#HandlingTheChange
     @Override
-    public void onConfigurationChanged(Configuration newConfig) {
+    public void onAttachedToWindow() {
         String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
         Log.d(TAG, methodName);
-        super.onConfigurationChanged(newConfig);
+        super.onAttachedToWindow();
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.d(TAG, methodName);
+        super.onWindowFocusChanged(hasFocus);
     }
 
     @Override
@@ -60,6 +65,15 @@ public class LifeCycleActivity extends Activity {
         String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
         Log.d(TAG, methodName);
         return true;
+    }
+
+    // called when setting 'android:configChanges="orientation|screenSize"' in your manifest
+    // http://developer.android.com/guide/topics/resources/runtime-changes.html#HandlingTheChange
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.d(TAG, methodName);
+        super.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -88,6 +102,13 @@ public class LifeCycleActivity extends Activity {
         String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
         Log.d(TAG, methodName);
         super.onDestroy();
+    }
+
+    @Override
+    public void onDetachedFromWindow() {
+        String methodName = new Object(){}.getClass().getEnclosingMethod().getName();
+        Log.d(TAG, methodName);
+        super.onDetachedFromWindow();
     }
 
     private static String getBundleInfo(Bundle bundle) {
